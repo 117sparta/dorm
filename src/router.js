@@ -20,10 +20,32 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       //component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     },
-      {
-        path:'/visitorInfo',
-          name: 'visitorInfo',
-          component: () => import('./views/visitorInfo/visitorRecord')
-      }
+    {
+      path:'/visitorInfo',
+      name: 'visitorInfo',
+      component: () => import('./views/visitorInfo/visitorRecord')
+    },
+    {
+      path: '/manager',
+      name: 'manager',
+      component: () => import('./views/manager'),
+      children: [
+        {
+          path: 'checkInManager',
+          name: 'checkInManager',
+          component: () => import('./views/manager/checkInManager')
+        },
+        {
+          path: 'studentManager',
+          name: 'studentManager',
+          component: () => import('./views/manager/studentManager')
+        },
+        {
+          path: 'dormManager',
+          name: 'dormManager',
+          component: () => import('./views/manager/dormManager')
+        }
+      ]
+    }
   ]
 })
