@@ -18,7 +18,8 @@ function configInterceptors (instance) {
     instance.interceptors.response.use(
         response => {
             if (response.status === 200) {
-                return Promise.resolve(response.data);
+                const data = response.data;
+                return Promise.resolve(data);
             } else {
                 return Promise.reject(response);
             }

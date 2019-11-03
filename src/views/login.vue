@@ -3,7 +3,7 @@
     <el-row type="flex" justify="center">
       <el-col :span="6">
         <div class="login-frame">
-          <h4>学生登录</h4>
+          <h4>登录</h4>
           <el-input v-model='account' placeholder="请输入账号" prefix-icon="el-icon-user"></el-input>
           <el-input v-model='password' show-password prefix-icon="el-icon-key" placeholder="请输入密码"
                     type="password"></el-input>
@@ -19,6 +19,7 @@
 
 <script>
   import { login } from "@/request/login";
+  import { Notification } from 'element-ui';
 
   export default {
         name: "login",
@@ -42,7 +43,24 @@
                     password
                 };
                 login(data).then((res) => {
-                    console.log(res);
+                  if (res.statusCode !== 0) {
+                    const showMsg = {
+                      title: '失败',
+                      message: res.message,
+                      duration: 0
+                    };
+                    Notification.warning(showMsg);
+                    return;
+                  }
+                  const message = res.message;
+                  if (message.mark === `'student'`) {
+                    this.$router.push({ path: '/SQInterface' });
+                  } else if (message.mark === `'manager'`) {
+                    const power = message.power;
+                    if (/visitor-manager/g.test(power)) {
+                      this.$router.push({ path: '/visitorInfo'});
+                    }
+                  }
                 });
             },
             turnToTemPage: function () {

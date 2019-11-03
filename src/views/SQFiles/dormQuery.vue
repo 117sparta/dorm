@@ -13,24 +13,26 @@
 </template>
 
 <script>
-    export default {
-        name: "dormQuery",
-        data: () => {
-            return {
-                tableData: null
-            }
-        },
-        mounted: function () {
-            this.$http.get('http://localhost:3000/doomQuery')
-                .then(response =>{
-                    //console.log(response);
-                    let data1 = JSON.stringify(response.data);
-                    let data = JSON.parse(data1);
-                    console.log(data);
-                    this.tableData = data;
-                });
+import { doomQuery } from '@/request/studentQuery.js';
+export default {
+    name: "dormQuery",
+    data: () => {
+        return {
+            tableData: null
         }
+    },
+    mounted: function () {
+        doomQuery()
+            .then((response) => {
+                const { dormMessage } = response.message;
+                console.log(dormMessage);
+                let data1 = JSON.stringify(dormMessage);
+                let data = JSON.parse(data1);
+                console.log(data);
+                this.tableData = data;
+            });
     }
+}
 </script>
 
 <style scoped>

@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { roomMateQuery } from '@/request/studentQuery.js'
     export default {
         name: "roomMateQuery",
         data: () => {
@@ -21,10 +22,11 @@
             }
         },
         mounted: function () {
-            this.$http.get('http://localhost:3000/roomMateQuery')
-                .then(response =>{
+            roomMateQuery()
+                .then((response) =>{
+                    const { roomMates } = response.message;
                     //console.log(response);
-                    let data1 = JSON.stringify(response.data);
+                    let data1 = JSON.stringify(roomMates);
                     let data = JSON.parse(data1);
                     console.log(data);
                     this.tableData = data;
