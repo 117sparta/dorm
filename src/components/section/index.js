@@ -1,2 +1,2 @@
-import section from './section.vue';
+import section from './mySection.vue';
 export default section;

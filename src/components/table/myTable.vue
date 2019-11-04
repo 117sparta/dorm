@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'table',
+  name: 'MyTable',
   props: {
     columns: {
       type: Array,

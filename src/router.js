@@ -14,7 +14,7 @@ export default new Router({
     {
       path: '/SQInterface',
       name: 'SQInterface',
-        component: () => import('./views/SQFiles/studentQuery')
+      component: () => import('@/views/SQFiles/studentQuery')
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -23,27 +23,27 @@ export default new Router({
     {
       path:'/visitorInfo',
       name: 'visitorInfo',
-      component: () => import('./views/visitorInfo/visitorRecord')
+      component: () => import('@/views/visitorInfo/visitorRecord')
     },
     {
       path: '/manager',
       name: 'manager',
-      component: () => import('./views/manager'),
+      component: () => import('@/views/manager'),
       children: [
         {
           path: 'checkInManager',
           name: 'checkInManager',
-          component: () => import('./views/manager/checkInManager')
+          component: () => import('@/views/manager/checkInManager')
         },
         {
           path: 'studentManager',
           name: 'studentManager',
-          component: () => import('./views/manager/studentManager')
+          component: () => import('@/views/manager/studentManager')
         },
         {
           path: 'dormManager',
           name: 'dormManager',
-          component: () => import('./views/manager/dormManager')
+          component: () => import('@/views/manager/dormManager')
         }
       ]
     }
