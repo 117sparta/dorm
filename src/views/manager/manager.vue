@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-container>
-      <el-aside style="height: 95vh; width: 15%; overflow: hidden;">
+      <el-aside style="height: 100vh; width: 13%; overflow: hidden;">
         <el-menu
          style="height: 100%;"
          background-color="#222"
@@ -23,8 +23,12 @@
         </el-menu>
       </el-aside>
       <el-container style="height: 95vh; overflow:hidden;">
-        <el-header>欢迎使用学生宿舍管理系统</el-header>
-        <el-main>
+        <el-header style="border-bottom: 1px solid #ccc; text-align:left;">
+          <div class="header">
+            欢迎使用学生宿舍管理系统
+          </div>
+        </el-header>
+        <el-main style="padding: 0;">
           <router-view />
         </el-main>
       </el-container>
@@ -42,3 +46,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .header {
+    font-size: 1.7em;
+    font-family: '黑体', sans-serif;
+    font-weight: bold;
+  }
+</style>

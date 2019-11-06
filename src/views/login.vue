@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin-top: 70px;">
     <el-row type="flex" justify="center">
       <el-col :span="6">
         <div class="login-frame">
