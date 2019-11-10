@@ -11,7 +11,7 @@ module.exports = {
     lintOnSave: true,
     chainWebpack: (config) => {
       config.resolve.alias
-        .set('@', resolve('src'))
+        .set('@', resolve('/src'))
         .set('_c', resolve('src/components'))
     },
     configureWebpack: {

@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-container>
-      <el-aside style="height: 100vh; width: 13%; overflow: hidden;">
+      <el-aside style="height: 96vh; width: 13%; overflow: hidden;">
         <el-menu
          style="height: 100%;"
          background-color="#222"

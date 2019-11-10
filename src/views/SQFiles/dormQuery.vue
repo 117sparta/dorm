@@ -25,10 +25,8 @@ export default {
         doomQuery()
             .then((response) => {
                 const { dormMessage } = response.message;
-                console.log(dormMessage);
                 let data1 = JSON.stringify(dormMessage);
                 let data = JSON.parse(data1);
-                console.log(data);
                 this.tableData = data;
             });
     }
